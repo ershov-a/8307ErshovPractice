@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // SellersForm
+            // SellersList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "SellersForm";
+            this.Name = "SellersList";
             this.Text = "Sellers";
             this.ResumeLayout(false);
 

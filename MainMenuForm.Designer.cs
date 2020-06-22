@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.ShopInfo = new System.Windows.Forms.Button();
-            this.Close = new System.Windows.Forms.Button();
             this.Sellers = new System.Windows.Forms.Button();
             this.CatalogButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -44,16 +43,6 @@
             this.ShopInfo.Text = "Shop Info";
             this.ShopInfo.UseVisualStyleBackColor = true;
             this.ShopInfo.Click += new System.EventHandler(this.ShopInfo_Click);
-            // 
-            // Close
-            // 
-            this.Close.Location = new System.Drawing.Point(808, 322);
-            this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(75, 23);
-            this.Close.TabIndex = 3;
-            this.Close.Text = "Close";
-            this.Close.UseVisualStyleBackColor = true;
-            this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
             // Sellers
             // 
@@ -85,7 +74,6 @@
             this.ClientSize = new System.Drawing.Size(906, 357);
             this.Controls.Add(this.CatalogButton);
             this.Controls.Add(this.Sellers);
-            this.Controls.Add(this.Close);
             this.Controls.Add(this.ShopInfo);
             this.Name = "MainMenuForm";
             this.Text = "Shop administrator";
@@ -95,7 +83,6 @@
 
         #endregion
         private System.Windows.Forms.Button ShopInfo;
-        private System.Windows.Forms.Button Close;
         private System.Windows.Forms.Button Sellers;
         private System.Windows.Forms.Button CatalogButton;
     }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.Address = new System.Windows.Forms.Label();
-            this.Back = new System.Windows.Forms.Button();
             this.Specialization = new System.Windows.Forms.Label();
             this.Director = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -45,16 +44,6 @@
             this.Address.TabIndex = 1;
             this.Address.Text = "Address: 198000, Saint Petersburg, Popova str, 5";
             this.Address.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // Back
-            // 
-            this.Back.Location = new System.Drawing.Point(713, 415);
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(75, 23);
-            this.Back.TabIndex = 2;
-            this.Back.Text = "Back";
-            this.Back.UseVisualStyleBackColor = true;
-            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // Specialization
             // 
@@ -94,7 +83,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Director);
             this.Controls.Add(this.Specialization);
-            this.Controls.Add(this.Back);
             this.Controls.Add(this.Address);
             this.Name = "ShopInfo";
             this.Text = "Shop information";
@@ -106,7 +94,6 @@
         #endregion
 
         private System.Windows.Forms.Label Address;
-        private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Label Specialization;
         private System.Windows.Forms.Label Director;
         private System.Windows.Forms.Button button1;

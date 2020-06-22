@@ -94,6 +94,9 @@
     <EmbeddedResource Include="CatalogForm.resx">
       <DependentUpon>CatalogForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SellersForm.resx">
+      <DependentUpon>SellersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,9 +109,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SellersForm.resx">
-      <DependentUpon>SellersForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ShopInfoForm.resx">
       <DependentUpon>ShopInfoForm.cs</DependentUpon>
     </EmbeddedResource>
