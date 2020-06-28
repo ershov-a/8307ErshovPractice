@@ -36,9 +36,10 @@
             // ShopInfo
             // 
             this.ShopInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ShopInfo.Location = new System.Drawing.Point(658, 44);
+            this.ShopInfo.Location = new System.Drawing.Point(877, 54);
+            this.ShopInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ShopInfo.Name = "ShopInfo";
-            this.ShopInfo.Size = new System.Drawing.Size(200, 254);
+            this.ShopInfo.Size = new System.Drawing.Size(267, 313);
             this.ShopInfo.TabIndex = 2;
             this.ShopInfo.Text = "Shop Info";
             this.ShopInfo.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // 
             this.Sellers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Sellers.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Sellers.Location = new System.Drawing.Point(355, 44);
+            this.Sellers.Location = new System.Drawing.Point(473, 54);
+            this.Sellers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Sellers.Name = "Sellers";
-            this.Sellers.Size = new System.Drawing.Size(200, 254);
+            this.Sellers.Size = new System.Drawing.Size(267, 313);
             this.Sellers.TabIndex = 4;
             this.Sellers.Text = "Sellers";
             this.Sellers.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@
             // CatalogButton
             // 
             this.CatalogButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CatalogButton.Location = new System.Drawing.Point(37, 44);
+            this.CatalogButton.Location = new System.Drawing.Point(49, 54);
+            this.CatalogButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CatalogButton.Name = "CatalogButton";
-            this.CatalogButton.Size = new System.Drawing.Size(200, 254);
+            this.CatalogButton.Size = new System.Drawing.Size(267, 313);
             this.CatalogButton.TabIndex = 5;
             this.CatalogButton.Text = "Catalog";
             this.CatalogButton.UseVisualStyleBackColor = true;
@@ -69,12 +72,13 @@
             // 
             // MainMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 357);
+            this.ClientSize = new System.Drawing.Size(1208, 439);
             this.Controls.Add(this.CatalogButton);
             this.Controls.Add(this.Sellers);
             this.Controls.Add(this.ShopInfo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenuForm";
             this.Text = "Shop administrator";
             this.ResumeLayout(false);
