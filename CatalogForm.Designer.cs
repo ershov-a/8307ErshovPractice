@@ -28,33 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Back = new System.Windows.Forms.Button();
+            this.dgvCatalog = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCatalog)).BeginInit();
             this.SuspendLayout();
             // 
-            // Back
+            // dgvCatalog
             // 
-            this.Back.Location = new System.Drawing.Point(708, 415);
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(75, 23);
-            this.Back.TabIndex = 0;
-            this.Back.Text = "Back";
-            this.Back.UseVisualStyleBackColor = true;
-            this.Back.Click += new System.EventHandler(this.Back_Click);
+            this.dgvCatalog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCatalog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Product,
+            this.StockBalance,
+            this.Comment});
+            this.dgvCatalog.Location = new System.Drawing.Point(13, 13);
+            this.dgvCatalog.Name = "dgvCatalog";
+            this.dgvCatalog.RowHeadersWidth = 51;
+            this.dgvCatalog.RowTemplate.Height = 24;
+            this.dgvCatalog.Size = new System.Drawing.Size(503, 425);
+            this.dgvCatalog.TabIndex = 0;
             // 
-            // Catalog
+            // ID
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 125;
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Product";
+            this.Product.MinimumWidth = 6;
+            this.Product.Name = "Product";
+            this.Product.Width = 125;
+            // 
+            // StockBalance
+            // 
+            this.StockBalance.HeaderText = "Stock balance";
+            this.StockBalance.MinimumWidth = 6;
+            this.StockBalance.Name = "StockBalance";
+            this.StockBalance.Width = 125;
+            // 
+            // Comment
+            // 
+            this.Comment.HeaderText = "Comment";
+            this.Comment.MinimumWidth = 6;
+            this.Comment.Name = "Comment";
+            this.Comment.Width = 125;
+            // 
+            // CatalogForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Back);
-            this.Name = "Catalog";
-            this.Text = "Catalog";
+            this.Controls.Add(this.dgvCatalog);
+            this.Name = "CatalogForm";
+            this.Text = "Catalog form";
+            this.Load += new System.EventHandler(this.CatalogForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCatalog)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.DataGridView dgvCatalog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockBalance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
     }
 }

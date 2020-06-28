@@ -18,7 +18,7 @@ namespace _8307Ershov
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainMenuForm());
-            
+
         }
     }
 }

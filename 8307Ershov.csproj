@@ -42,6 +42,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -71,6 +72,7 @@
     <Compile Include="CatalogForm.Designer.cs">
       <DependentUpon>CatalogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoublyLinkedList.cs" />
     <Compile Include="SellersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,7 +114,7 @@
     <EmbeddedResource Include="ShopInfoForm.resx">
       <DependentUpon>ShopInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="database.db">
+    <None Include="Catalog.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
