@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _8307Ershov
@@ -34,50 +27,6 @@ namespace _8307Ershov
             }
         }
 
-        /*private LinkedList GetByID(LinkedList head, int ID)
-        {
-            LinkedList temp = head;
-            while (temp != null)
-            {
-                if (temp.GetID() == ID)
-                {
-                    return temp;
-                }
-                else
-                {
-                    temp = temp.GetNext();
-                }
-            }
-            return null;
-        }*/
-
-        /*private void DeleteByID(LinkedList headNode, int ID)
-        {
-            //LinkedList temp = GetByID(headNode, ID);
-            LinkedList prev = new LinkedList();
-            LinkedList temp = new LinkedList();
-
-            if (headNode.GetID() == ID)
-            {
-                myList.SetHead(headNode.GetNext());
-                myList.DecrementCount();
-            }
-            else
-            {
-                temp = headNode;
-                while (temp != null && temp.GetID() != ID)
-                {
-                    prev = temp;
-                    temp = temp.GetNext(); 
-                }
-                if (temp != null)
-                {
-                    prev.SetNext(temp.GetNext());
-                    myList.DecrementCount();
-                }
-            }
-        }*/
-
         private void WriteDlinkedListToFile(LinkedList head)
         {
             LinkedList tempNode = myList.GetHead();
@@ -94,6 +43,9 @@ namespace _8307Ershov
         private void CatalogForm_Load(object sender, EventArgs e)
         {
             dgvCatalog.RowHeadersVisible = false;
+            tbModifyProduct.Enabled = false;
+            tbModifyStock.Enabled = false;
+            tbModifyComment.Enabled = false;
             if (!File.Exists(@"Catalog.csv"))
             {
                 using (var catalog = File.CreateText(@"Catalog.csv"))
@@ -123,63 +75,68 @@ namespace _8307Ershov
             WriteDlinkedListToFile(myList.GetHead());
         }
 
+        private void bttClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void bttAdd_Click(object sender, EventArgs e)
         {
             string cellDataConcat = "";
-            cellDataConcat += tbProduct.Text + delimeter + tbStock.Text + delimeter + tbComment.Text;
+            cellDataConcat += tbAddProduct.Text + delimeter + tbAddStock.Text + delimeter + tbAddComment.Text;
             myList.GetTail().InsertNext(cellDataConcat);
-            tbProduct.Text = "";
-            tbStock.Text = "";
-            tbComment.Text = "";
+            tbAddProduct.Text = "";
+            tbAddStock.Text = "";
+            tbAddComment.Text = "";
             UpdateDGV(myList.GetHead());
         }
 
-        private void bttLoad_Click(object sender, EventArgs e)
+
+        private void bttLoadProductData_Click(object sender, EventArgs e)
         {
             int ID;
-            bool checkNumber = int.TryParse(tbID.Text, out ID);
+            bool checkNumber = int.TryParse(tbModifyID.Text, out ID);
             if (checkNumber == true)
             {
                 LinkedList tempNode = myList.GetByID(ID);
                 if (tempNode != null)
                 {
                     String temp = myList.GetByID(ID).GetData();
-                    tbID.ReadOnly = true;
-                    bttAdd.Enabled = false;
-                    string[] words = temp.Split(delimeter);
-                    tbProduct.Text = words[0];
-                    tbStock.Text = words[1];
-                    tbComment.Text = words[2];
+                    tbModifyID.ReadOnly = true;
 
-                    bttApplyChanges.Enabled = true;
-                    //bttAdd.Enabled = true;
-                    tbProduct.Enabled = true;
-                    tbStock.Enabled = true;
-                    tbComment.Enabled = true;
+                    string[] words = temp.Split(delimeter);
+                    tbModifyProduct.Text = words[0];
+                    tbModifyStock.Text = words[1];
+                    tbModifyComment.Text = words[2];
+                                        
+                    tbModifyProduct.Enabled = true;
+                    tbModifyStock.Enabled = true;
+                    tbModifyComment.Enabled = true;
                 }
                 else
                 {
-                    MessageBox.Show("Product with ID = " + tbID.Text + " doesn't exist. Try again.");
+                    MessageBox.Show("Product with ID = " + tbModifyID.Text + " doesn't exist. Try again.");
                 }
             }
             else
             {
                 MessageBox.Show("ID is invalid. Try again.");
             }
-            
-            
         }
 
-        private void bttApplyChanges_Click(object sender, EventArgs e)
+        private void bttModifySave_Click(object sender, EventArgs e)
         {
-            if (tbID.Text != "")
+            if (tbModifyID.Text != "")
             {
-                myList.GetByID(Int32.Parse(tbID.Text)).SetData(tbProduct.Text + delimeter + tbStock.Text + delimeter + tbComment.Text);
-                tbID.ReadOnly = false;
-                tbID.Text = "";
-                tbProduct.Text = "";
-                tbStock.Text = "";
-                tbComment.Text = "";
+                myList.GetByID(Int32.Parse(tbModifyID.Text)).SetData(tbModifyProduct.Text + delimeter + tbModifyStock.Text + delimeter + tbModifyComment.Text);
+                tbModifyID.ReadOnly = false;
+                tbModifyID.Text = "";
+                tbModifyProduct.Text = "";
+                tbModifyStock.Text = "";
+                tbModifyComment.Text = "";
+                tbModifyProduct.Enabled = false;
+                tbModifyStock.Enabled = false;
+                tbModifyComment.Enabled = false;
 
                 UpdateDGV(myList.GetHead());
             }
@@ -187,133 +144,30 @@ namespace _8307Ershov
             {
                 MessageBox.Show("ID is invalid. Enter ID, click load and modify data.");
             }
-            
 
         }
 
-        private void tbID_TextChanged(object sender, EventArgs e)
-        {
-            if (tbID.Text == "")
-            {
-                bttApplyChanges.Enabled = true;
-                bttAdd.Enabled = true;
-                tbProduct.Enabled = true;
-                tbStock.Enabled = true;
-                tbComment.Enabled = true;
-            }
-            else
-            {
-                bttApplyChanges.Enabled = false;
-                bttAdd.Enabled = false;
-                tbProduct.Enabled = false;
-                tbStock.Enabled = false;
-                tbComment.Enabled = false;
-            }
-            
-        }
-
-        private void tbProduct_TextChanged(object sender, EventArgs e)
-        {
-            if (tbProduct.Text == "")
-            {
-                tbID.ReadOnly = false;
-                bttLoad.Enabled = true;
-                bttDelete.Enabled = true;
-                bttApplyChanges.Enabled = true;
-            }
-            else
-            {
-                tbID.ReadOnly = true;
-                bttLoad.Enabled = false;
-                bttDelete.Enabled = false;
-                if (tbID.ReadOnly == true)
-                {
-                    bttApplyChanges.Enabled = true;
-                }
-                else
-                {
-                    bttApplyChanges.Enabled = false;
-                }
-                
-            }
-        }
-
-        private void bttDelete_Click(object sender, EventArgs e)
+        private void bttDeleteProduct_Click(object sender, EventArgs e)
         {
             int ID;
-            bool checkNumber = int.TryParse(tbID.Text, out ID);
+            bool checkNumber = int.TryParse(tbDeleteID.Text, out ID);
             if (checkNumber == true)
             {
                 if (myList.GetByID(ID) != null)
                 {
                     myList.DeleteByID(ID);
                     UpdateDGV(myList.GetHead());
-                    tbID.Text = "";
+                    tbDeleteID.Text = "";
                 }
                 else
                 {
-                    MessageBox.Show("Product with ID = " + tbID.Text + " doesn't exist. Try again.");
+                    MessageBox.Show("Product with ID = " + tbDeleteID.Text + " doesn't exist. Try again.");
                 }
             }
             else
             {
                 MessageBox.Show("ID is invalid. Try again.");
             }
-        }
-
-        private void tbStock_TextChanged(object sender, EventArgs e)
-        {
-            if (tbStock.Text == "")
-            {
-                tbID.ReadOnly = false;
-                bttLoad.Enabled = true;
-                bttDelete.Enabled = true;
-                bttApplyChanges.Enabled = true;
-            }
-            else
-            {
-                tbID.ReadOnly = true;
-                bttLoad.Enabled = false;
-                bttDelete.Enabled = false;
-                if (tbID.ReadOnly == true)
-                {
-                    bttApplyChanges.Enabled = true;
-                }
-                else
-                {
-                    bttApplyChanges.Enabled = false;
-                }
-            }
-        }
-
-        private void tbComment_TextChanged(object sender, EventArgs e)
-        {
-            if (tbComment.Text == "")
-            {
-                tbID.ReadOnly = false;
-                bttLoad.Enabled = true;
-                bttDelete.Enabled = true;
-                bttApplyChanges.Enabled = true;
-            }
-            else
-            {
-                tbID.ReadOnly = true;
-                bttLoad.Enabled = false;
-                bttDelete.Enabled = false;
-                if (tbID.ReadOnly == true)
-                {
-                    bttApplyChanges.Enabled = true;
-                }
-                else
-                {
-                    bttApplyChanges.Enabled = false;
-                }
-            }
-        }
-
-        private void bttClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
