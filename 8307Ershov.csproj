@@ -114,9 +114,7 @@
     <EmbeddedResource Include="ShopInfoForm.resx">
       <DependentUpon>ShopInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Catalog.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Catalog.csv" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

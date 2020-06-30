@@ -3,39 +3,38 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.VisualBasic.FileIO;
 
 namespace _8307Ershov
-{
-    // TODO Empty input file handling
+{    
     public partial class CatalogForm : Form
     {
         public CatalogForm()
         {
             InitializeComponent();
         }
+
         LinkedList myList = new LinkedList();
-        
+        char delimeter = ';';
+
         private void UpdateDGV(LinkedList head)
-        {
-            //LinkedList tempNode = head;
+        { 
             LinkedList tempNode = myList.GetHead();
-            //Console.WriteLine("Head count = " + head.GetCount());
             dgvCatalog.Rows.Clear();
-            //Console.WriteLine("\n------");
             for (int i = 1; i <= myList.GetCount(); i++)
             {
-                string[] words = (tempNode.GetID() + "," + tempNode.GetData()).Split(',');
+                string[] words = (tempNode.GetID() + ';'.ToString() + tempNode.GetData()).Split(delimeter);
                 dgvCatalog.Rows.Add(words);
                 tempNode = tempNode.GetNext();
             }
         }
 
-        private LinkedList GetByID(LinkedList head, int ID)
+        /*private LinkedList GetByID(LinkedList head, int ID)
         {
             LinkedList temp = head;
             while (temp != null)
@@ -50,9 +49,9 @@ namespace _8307Ershov
                 }
             }
             return null;
-        }
+        }*/
 
-        private void DeleteByID(LinkedList headNode, int ID)
+        /*private void DeleteByID(LinkedList headNode, int ID)
         {
             //LinkedList temp = GetByID(headNode, ID);
             LinkedList prev = new LinkedList();
@@ -77,7 +76,7 @@ namespace _8307Ershov
                     myList.DecrementCount();
                 }
             }
-        }
+        }*/
 
         private void WriteDlinkedListToFile(LinkedList head)
         {
@@ -94,32 +93,29 @@ namespace _8307Ershov
         }
         private void CatalogForm_Load(object sender, EventArgs e)
         {
-            var lineCounter = 0L;
-            using (var file = new System.IO.StreamReader(@"Catalog.csv"))
+            dgvCatalog.RowHeadersVisible = false;
+            if (!File.Exists(@"Catalog.csv"))
             {
-                while (file.ReadLine() != null)
+                using (var catalog = File.CreateText(@"Catalog.csv"))
                 {
-                    lineCounter++;
+                    catalog.Close();
                 }
+            }
+            string[] lines = System.IO.File.ReadAllLines(@"Catalog.csv");
 
-            }
-            // Read file and fill LinkedList
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@"Catalog.csv"))
+            if ((lines.Count() > 0) && (myList.GetCount() == 0))
             {
-                string line;
-                line = file.ReadLine();
-                if (line != "")
+                foreach (string line in lines)
                 {
-                    myList = new LinkedList(line);
-                    for (int i = 2; i <= lineCounter; i++)
-                    {
-                        line = file.ReadLine();
-                        myList.GetTail().InsertNext(line);
-                    }
+                    myList.GetTail().InsertNext(line.ToString());
                 }
-                file.Close();
+                UpdateDGV(myList.GetHead());
             }
-            UpdateDGV(myList.GetHead());
+            else
+            {
+                UpdateDGV(myList.GetHead());
+            }
+            
         }
 
         private void CatalogForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -130,7 +126,7 @@ namespace _8307Ershov
         private void bttAdd_Click(object sender, EventArgs e)
         {
             string cellDataConcat = "";
-            cellDataConcat += tbProduct.Text + "," + tbStock.Text + "," + tbComment.Text;
+            cellDataConcat += tbProduct.Text + delimeter + tbStock.Text + delimeter + tbComment.Text;
             myList.GetTail().InsertNext(cellDataConcat);
             tbProduct.Text = "";
             tbStock.Text = "";
@@ -150,7 +146,7 @@ namespace _8307Ershov
                     String temp = myList.GetByID(ID).GetData();
                     tbID.ReadOnly = true;
                     bttAdd.Enabled = false;
-                    string[] words = temp.Split(',');
+                    string[] words = temp.Split(delimeter);
                     tbProduct.Text = words[0];
                     tbStock.Text = words[1];
                     tbComment.Text = words[2];
@@ -176,18 +172,26 @@ namespace _8307Ershov
 
         private void bttApplyChanges_Click(object sender, EventArgs e)
         {
-            myList.GetByID(Int32.Parse(tbID.Text)).SetData(tbProduct.Text + "," + tbStock.Text + "," + tbComment.Text);
-            tbID.ReadOnly = false;
-            tbID.Text = "";
-            tbProduct.Text = "";
-            tbStock.Text = "";
-            tbComment.Text = "";
+            if (tbID.Text != "")
+            {
+                myList.GetByID(Int32.Parse(tbID.Text)).SetData(tbProduct.Text + delimeter + tbStock.Text + delimeter + tbComment.Text);
+                tbID.ReadOnly = false;
+                tbID.Text = "";
+                tbProduct.Text = "";
+                tbStock.Text = "";
+                tbComment.Text = "";
+
+                UpdateDGV(myList.GetHead());
+            }
+            else
+            {
+                MessageBox.Show("ID is invalid. Enter ID, click load and modify data.");
+            }
             
-            UpdateDGV(myList.GetHead());
 
         }
 
-        private void tbEditID_TextChanged(object sender, EventArgs e)
+        private void tbID_TextChanged(object sender, EventArgs e)
         {
             if (tbID.Text == "")
             {
@@ -208,9 +212,30 @@ namespace _8307Ershov
             
         }
 
-        private void tbAddProduct_TextChanged(object sender, EventArgs e)
+        private void tbProduct_TextChanged(object sender, EventArgs e)
         {
-
+            if (tbProduct.Text == "")
+            {
+                tbID.ReadOnly = false;
+                bttLoad.Enabled = true;
+                bttDelete.Enabled = true;
+                bttApplyChanges.Enabled = true;
+            }
+            else
+            {
+                tbID.ReadOnly = true;
+                bttLoad.Enabled = false;
+                bttDelete.Enabled = false;
+                if (tbID.ReadOnly == true)
+                {
+                    bttApplyChanges.Enabled = true;
+                }
+                else
+                {
+                    bttApplyChanges.Enabled = false;
+                }
+                
+            }
         }
 
         private void bttDelete_Click(object sender, EventArgs e)
@@ -234,6 +259,61 @@ namespace _8307Ershov
             {
                 MessageBox.Show("ID is invalid. Try again.");
             }
+        }
+
+        private void tbStock_TextChanged(object sender, EventArgs e)
+        {
+            if (tbStock.Text == "")
+            {
+                tbID.ReadOnly = false;
+                bttLoad.Enabled = true;
+                bttDelete.Enabled = true;
+                bttApplyChanges.Enabled = true;
+            }
+            else
+            {
+                tbID.ReadOnly = true;
+                bttLoad.Enabled = false;
+                bttDelete.Enabled = false;
+                if (tbID.ReadOnly == true)
+                {
+                    bttApplyChanges.Enabled = true;
+                }
+                else
+                {
+                    bttApplyChanges.Enabled = false;
+                }
+            }
+        }
+
+        private void tbComment_TextChanged(object sender, EventArgs e)
+        {
+            if (tbComment.Text == "")
+            {
+                tbID.ReadOnly = false;
+                bttLoad.Enabled = true;
+                bttDelete.Enabled = true;
+                bttApplyChanges.Enabled = true;
+            }
+            else
+            {
+                tbID.ReadOnly = true;
+                bttLoad.Enabled = false;
+                bttDelete.Enabled = false;
+                if (tbID.ReadOnly == true)
+                {
+                    bttApplyChanges.Enabled = true;
+                }
+                else
+                {
+                    bttApplyChanges.Enabled = false;
+                }
+            }
+        }
+
+        private void bttClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
