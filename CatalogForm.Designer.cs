@@ -77,7 +77,7 @@
             this.dgvCatalog.Name = "dgvCatalog";
             this.dgvCatalog.RowHeadersWidth = 51;
             this.dgvCatalog.RowTemplate.Height = 24;
-            this.dgvCatalog.Size = new System.Drawing.Size(498, 454);
+            this.dgvCatalog.Size = new System.Drawing.Size(546, 519);
             this.dgvCatalog.TabIndex = 0;
             // 
             // ID
@@ -116,10 +116,10 @@
             // 
             // bttClose
             // 
-            this.bttClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bttClose.Location = new System.Drawing.Point(13, 473);
+            this.bttClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bttClose.Location = new System.Drawing.Point(908, 511);
             this.bttClose.Name = "bttClose";
-            this.bttClose.Size = new System.Drawing.Size(144, 32);
+            this.bttClose.Size = new System.Drawing.Size(141, 32);
             this.bttClose.TabIndex = 3;
             this.bttClose.Text = "Close";
             this.bttClose.UseVisualStyleBackColor = true;
@@ -138,9 +138,9 @@
             this.groupBox3.Controls.Add(this.tbModifyProduct);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(535, 165);
+            this.groupBox3.Location = new System.Drawing.Point(590, 184);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(465, 249);
+            this.groupBox3.Size = new System.Drawing.Size(465, 244);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Modify exisiting product";
@@ -239,7 +239,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.tbDeleteID);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(535, 418);
+            this.groupBox2.Location = new System.Drawing.Point(590, 424);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(465, 81);
             this.groupBox2.TabIndex = 5;
@@ -284,7 +284,7 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.tbAddProduct);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(535, 1);
+            this.groupBox4.Location = new System.Drawing.Point(590, 13);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(465, 158);
             this.groupBox4.TabIndex = 4;
@@ -356,7 +356,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 506);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);

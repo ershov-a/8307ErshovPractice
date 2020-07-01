@@ -34,23 +34,24 @@
             this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bttAdd = new System.Windows.Forms.Button();
-            this.tbDateOfBirth = new System.Windows.Forms.TextBox();
+            this.tbAddDateOfBirth = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbFullName = new System.Windows.Forms.TextBox();
+            this.tbAddFullName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbDeleteSellerID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.bttDeleteSeller = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbDeleteID = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbModifySellerFullName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbMofidySellerDOB = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbModifySellerID = new System.Windows.Forms.TextBox();
+            this.bttModifySave = new System.Windows.Forms.Button();
             this.bttLoadSellerData = new System.Windows.Forms.Button();
-            this.bttModifySellerSave = new System.Windows.Forms.Button();
+            this.tbModifyID = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbModifyDOB = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbModifyFullName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.bttClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSellers)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             // dgvSellers
             // 
+            this.dgvSellers.AllowUserToAddRows = false;
             this.dgvSellers.AllowUserToDeleteRows = false;
             this.dgvSellers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSellers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -99,10 +101,10 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.bttAdd);
-            this.groupBox1.Controls.Add(this.tbDateOfBirth);
+            this.groupBox1.Controls.Add(this.tbAddDateOfBirth);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tbFullName);
+            this.groupBox1.Controls.Add(this.tbAddFullName);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(590, 13);
             this.groupBox1.Name = "groupBox1";
@@ -121,12 +123,12 @@
             this.bttAdd.UseVisualStyleBackColor = true;
             this.bttAdd.Click += new System.EventHandler(this.bttAdd_Click);
             // 
-            // tbDateOfBirth
+            // tbAddDateOfBirth
             // 
-            this.tbDateOfBirth.Location = new System.Drawing.Point(11, 114);
-            this.tbDateOfBirth.Name = "tbDateOfBirth";
-            this.tbDateOfBirth.Size = new System.Drawing.Size(144, 30);
-            this.tbDateOfBirth.TabIndex = 3;
+            this.tbAddDateOfBirth.Location = new System.Drawing.Point(11, 114);
+            this.tbAddDateOfBirth.Name = "tbAddDateOfBirth";
+            this.tbAddDateOfBirth.Size = new System.Drawing.Size(144, 30);
+            this.tbAddDateOfBirth.TabIndex = 3;
             // 
             // label2
             // 
@@ -148,43 +150,25 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Full name";
             // 
-            // tbFullName
+            // tbAddFullName
             // 
-            this.tbFullName.Location = new System.Drawing.Point(11, 53);
-            this.tbFullName.Name = "tbFullName";
-            this.tbFullName.Size = new System.Drawing.Size(269, 30);
-            this.tbFullName.TabIndex = 0;
+            this.tbAddFullName.Location = new System.Drawing.Point(11, 53);
+            this.tbAddFullName.Name = "tbAddFullName";
+            this.tbAddFullName.Size = new System.Drawing.Size(269, 30);
+            this.tbAddFullName.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.bttDeleteSeller);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.tbDeleteSellerID);
+            this.groupBox2.Controls.Add(this.tbDeleteID);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(590, 451);
+            this.groupBox2.Location = new System.Drawing.Point(590, 424);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(465, 81);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Delete seller";
-            // 
-            // tbDeleteSellerID
-            // 
-            this.tbDeleteSellerID.Location = new System.Drawing.Point(11, 45);
-            this.tbDeleteSellerID.MaxLength = 1000;
-            this.tbDeleteSellerID.Name = "tbDeleteSellerID";
-            this.tbDeleteSellerID.Size = new System.Drawing.Size(144, 30);
-            this.tbDeleteSellerID.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(7, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Seller ID";
             // 
             // bttDeleteSeller
             // 
@@ -196,57 +180,68 @@
             this.bttDeleteSeller.UseVisualStyleBackColor = true;
             this.bttDeleteSeller.Click += new System.EventHandler(this.bttDeleteSeller_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(7, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Seller ID";
+            // 
+            // tbDeleteID
+            // 
+            this.tbDeleteID.Location = new System.Drawing.Point(11, 45);
+            this.tbDeleteID.MaxLength = 1000;
+            this.tbDeleteID.Name = "tbDeleteID";
+            this.tbDeleteID.Size = new System.Drawing.Size(144, 30);
+            this.tbDeleteID.TabIndex = 0;
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.bttModifySellerSave);
+            this.groupBox3.Controls.Add(this.bttModifySave);
             this.groupBox3.Controls.Add(this.bttLoadSellerData);
-            this.groupBox3.Controls.Add(this.tbModifySellerID);
+            this.groupBox3.Controls.Add(this.tbModifyID);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.tbMofidySellerDOB);
+            this.groupBox3.Controls.Add(this.tbModifyDOB);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.tbModifySellerFullName);
+            this.groupBox3.Controls.Add(this.tbModifyFullName);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(590, 196);
+            this.groupBox3.Location = new System.Drawing.Point(590, 184);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(465, 229);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Modify exisiting seller";
             // 
-            // label4
+            // bttModifySave
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(7, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Full name";
+            this.bttModifySave.Location = new System.Drawing.Point(298, 25);
+            this.bttModifySave.Name = "bttModifySave";
+            this.bttModifySave.Size = new System.Drawing.Size(149, 189);
+            this.bttModifySave.TabIndex = 7;
+            this.bttModifySave.Text = "Save";
+            this.bttModifySave.UseVisualStyleBackColor = true;
+            this.bttModifySave.Click += new System.EventHandler(this.bttModifySave_Click);
             // 
-            // tbModifySellerFullName
+            // bttLoadSellerData
             // 
-            this.tbModifySellerFullName.Location = new System.Drawing.Point(11, 104);
-            this.tbModifySellerFullName.Name = "tbModifySellerFullName";
-            this.tbModifySellerFullName.Size = new System.Drawing.Size(269, 30);
-            this.tbModifySellerFullName.TabIndex = 1;
+            this.bttLoadSellerData.Location = new System.Drawing.Point(170, 48);
+            this.bttLoadSellerData.Name = "bttLoadSellerData";
+            this.bttLoadSellerData.Size = new System.Drawing.Size(110, 30);
+            this.bttLoadSellerData.TabIndex = 6;
+            this.bttLoadSellerData.Text = "Load";
+            this.bttLoadSellerData.UseVisualStyleBackColor = true;
+            this.bttLoadSellerData.Click += new System.EventHandler(this.bttLoadSellerData_Click);
             // 
-            // label5
+            // tbModifyID
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(7, 148);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(228, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Date of Birth (YYYY-MM-DD)";
-            // 
-            // tbMofidySellerDOB
-            // 
-            this.tbMofidySellerDOB.Location = new System.Drawing.Point(11, 171);
-            this.tbMofidySellerDOB.Name = "tbMofidySellerDOB";
-            this.tbMofidySellerDOB.Size = new System.Drawing.Size(144, 30);
-            this.tbMofidySellerDOB.TabIndex = 3;
+            this.tbModifyID.Location = new System.Drawing.Point(11, 48);
+            this.tbModifyID.Name = "tbModifyID";
+            this.tbModifyID.Size = new System.Drawing.Size(144, 30);
+            this.tbModifyID.TabIndex = 5;
             // 
             // label6
             // 
@@ -258,38 +253,57 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Seller ID";
             // 
-            // tbModifySellerID
+            // tbModifyDOB
             // 
-            this.tbModifySellerID.Location = new System.Drawing.Point(11, 48);
-            this.tbModifySellerID.Name = "tbModifySellerID";
-            this.tbModifySellerID.Size = new System.Drawing.Size(144, 30);
-            this.tbModifySellerID.TabIndex = 5;
+            this.tbModifyDOB.Location = new System.Drawing.Point(11, 171);
+            this.tbModifyDOB.Name = "tbModifyDOB";
+            this.tbModifyDOB.Size = new System.Drawing.Size(144, 30);
+            this.tbModifyDOB.TabIndex = 3;
             // 
-            // bttLoadSellerData
+            // label5
             // 
-            this.bttLoadSellerData.Location = new System.Drawing.Point(298, 21);
-            this.bttLoadSellerData.Name = "bttLoadSellerData";
-            this.bttLoadSellerData.Size = new System.Drawing.Size(149, 80);
-            this.bttLoadSellerData.TabIndex = 6;
-            this.bttLoadSellerData.Text = "Load";
-            this.bttLoadSellerData.UseVisualStyleBackColor = true;
-            this.bttLoadSellerData.Click += new System.EventHandler(this.bttLoadSellerData_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(7, 148);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(228, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Date of Birth (YYYY-MM-DD)";
             // 
-            // bttModifySellerSave
+            // tbModifyFullName
             // 
-            this.bttModifySellerSave.Location = new System.Drawing.Point(298, 135);
-            this.bttModifySellerSave.Name = "bttModifySellerSave";
-            this.bttModifySellerSave.Size = new System.Drawing.Size(149, 79);
-            this.bttModifySellerSave.TabIndex = 7;
-            this.bttModifySellerSave.Text = "Save";
-            this.bttModifySellerSave.UseVisualStyleBackColor = true;
-            this.bttModifySellerSave.Click += new System.EventHandler(this.bttModifySellerSave_Click);
+            this.tbModifyFullName.Location = new System.Drawing.Point(11, 104);
+            this.tbModifyFullName.Name = "tbModifyFullName";
+            this.tbModifyFullName.Size = new System.Drawing.Size(269, 30);
+            this.tbModifyFullName.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(7, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Full name";
+            // 
+            // bttClose
+            // 
+            this.bttClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bttClose.Location = new System.Drawing.Point(888, 519);
+            this.bttClose.Name = "bttClose";
+            this.bttClose.Size = new System.Drawing.Size(149, 32);
+            this.bttClose.TabIndex = 4;
+            this.bttClose.Text = "Close";
+            this.bttClose.UseVisualStyleBackColor = true;
+            this.bttClose.Click += new System.EventHandler(this.bttClose_Click);
             // 
             // SellersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.bttClose);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -297,6 +311,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SellersForm";
             this.Text = "Sellers";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SellersForm_FormClosing);
             this.Load += new System.EventHandler(this.SellersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSellers)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -317,22 +332,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbFullName;
+        private System.Windows.Forms.TextBox tbAddFullName;
         private System.Windows.Forms.Button bttAdd;
-        private System.Windows.Forms.TextBox tbDateOfBirth;
+        private System.Windows.Forms.TextBox tbAddDateOfBirth;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox tbDeleteSellerID;
+        private System.Windows.Forms.TextBox tbDeleteID;
         private System.Windows.Forms.Button bttDeleteSeller;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbModifySellerFullName;
-        private System.Windows.Forms.TextBox tbMofidySellerDOB;
+        private System.Windows.Forms.TextBox tbModifyFullName;
+        private System.Windows.Forms.TextBox tbModifyDOB;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button bttModifySellerSave;
+        private System.Windows.Forms.Button bttModifySave;
         private System.Windows.Forms.Button bttLoadSellerData;
-        private System.Windows.Forms.TextBox tbModifySellerID;
+        private System.Windows.Forms.TextBox tbModifyID;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button bttClose;
     }
 }
