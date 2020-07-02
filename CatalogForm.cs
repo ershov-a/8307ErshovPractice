@@ -44,6 +44,7 @@ namespace _8307Ershov
         {
             dgvCatalog.RowHeadersVisible = false;
             tbModifyProduct.Enabled = false;
+            tbModifyPrice.Enabled = false;
             tbModifyStock.Enabled = false;
             tbModifyComment.Enabled = false;
             if (!File.Exists(@"Catalog.csv"))
@@ -83,9 +84,10 @@ namespace _8307Ershov
         private void bttAdd_Click(object sender, EventArgs e)
         {
             string cellDataConcat = "";
-            cellDataConcat += tbAddProduct.Text + delimeter + tbAddStock.Text + delimeter + tbAddComment.Text;
+            cellDataConcat += tbAddProduct.Text + delimeter + tbAddPrice.Text + delimeter + tbAddStock.Text + delimeter + tbAddComment.Text;
             myList.GetTail().InsertNext(cellDataConcat);
             tbAddProduct.Text = "";
+            tbAddPrice.Text = "";
             tbAddStock.Text = "";
             tbAddComment.Text = "";
             UpdateDGV(myList.GetHead());
@@ -106,10 +108,12 @@ namespace _8307Ershov
 
                     string[] words = temp.Split(delimeter);
                     tbModifyProduct.Text = words[0];
-                    tbModifyStock.Text = words[1];
-                    tbModifyComment.Text = words[2];
+                    tbModifyPrice.Text = words[1];
+                    tbModifyStock.Text = words[2];
+                    tbModifyComment.Text = words[3];
                                         
                     tbModifyProduct.Enabled = true;
+                    tbModifyPrice.Enabled = true;
                     tbModifyStock.Enabled = true;
                     tbModifyComment.Enabled = true;
                 }
@@ -128,13 +132,15 @@ namespace _8307Ershov
         {
             if (tbModifyID.Text != "")
             {
-                myList.GetByID(Int32.Parse(tbModifyID.Text)).SetData(tbModifyProduct.Text + delimeter + tbModifyStock.Text + delimeter + tbModifyComment.Text);
+                myList.GetByID(Int32.Parse(tbModifyID.Text)).SetData(tbModifyProduct.Text + delimeter + tbModifyPrice.Text + delimeter + tbModifyStock.Text + delimeter + tbModifyComment.Text);
                 tbModifyID.ReadOnly = false;
                 tbModifyID.Text = "";
                 tbModifyProduct.Text = "";
+                tbModifyPrice.Text = "";
                 tbModifyStock.Text = "";
                 tbModifyComment.Text = "";
                 tbModifyProduct.Enabled = false;
+                tbModifyPrice.Enabled = false;
                 tbModifyStock.Enabled = false;
                 tbModifyComment.Enabled = false;
 

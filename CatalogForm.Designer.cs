@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvCatalog = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bttClose = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbModifyComment = new System.Windows.Forms.TextBox();
@@ -57,6 +53,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tbAddProduct = new System.Windows.Forms.TextBox();
+            this.tbModifyPrice = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbAddPrice = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalog)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,55 +76,22 @@
             this.dgvCatalog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Product,
+            this.Price,
             this.StockBalance,
             this.Comment});
             this.dgvCatalog.Location = new System.Drawing.Point(13, 13);
             this.dgvCatalog.Name = "dgvCatalog";
             this.dgvCatalog.RowHeadersWidth = 51;
             this.dgvCatalog.RowTemplate.Height = 24;
-            this.dgvCatalog.Size = new System.Drawing.Size(546, 519);
+            this.dgvCatalog.Size = new System.Drawing.Size(696, 519);
             this.dgvCatalog.TabIndex = 0;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // Product
-            // 
-            this.Product.HeaderText = "Product";
-            this.Product.MinimumWidth = 6;
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
-            this.Product.Width = 125;
-            // 
-            // StockBalance
-            // 
-            this.StockBalance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.StockBalance.HeaderText = "Stock balance";
-            this.StockBalance.MinimumWidth = 6;
-            this.StockBalance.Name = "StockBalance";
-            this.StockBalance.ReadOnly = true;
-            this.StockBalance.Width = 126;
-            // 
-            // Comment
-            // 
-            this.Comment.HeaderText = "Comment";
-            this.Comment.MinimumWidth = 6;
-            this.Comment.Name = "Comment";
-            this.Comment.ReadOnly = true;
-            this.Comment.Width = 125;
             // 
             // bttClose
             // 
             this.bttClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bttClose.Location = new System.Drawing.Point(908, 511);
+            this.bttClose.Location = new System.Drawing.Point(1063, 519);
             this.bttClose.Name = "bttClose";
-            this.bttClose.Size = new System.Drawing.Size(141, 32);
+            this.bttClose.Size = new System.Drawing.Size(137, 32);
             this.bttClose.TabIndex = 3;
             this.bttClose.Text = "Close";
             this.bttClose.UseVisualStyleBackColor = true;
@@ -127,8 +99,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.tbModifyComment);
             this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.tbModifyPrice);
             this.groupBox3.Controls.Add(this.bttModifySave);
             this.groupBox3.Controls.Add(this.bttLoadProductData);
             this.groupBox3.Controls.Add(this.tbModifyID);
@@ -138,16 +112,16 @@
             this.groupBox3.Controls.Add(this.tbModifyProduct);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(590, 184);
+            this.groupBox3.Location = new System.Drawing.Point(735, 184);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(465, 244);
+            this.groupBox3.Size = new System.Drawing.Size(465, 246);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Modify exisiting product";
             // 
             // tbModifyComment
             // 
-            this.tbModifyComment.Location = new System.Drawing.Point(11, 204);
+            this.tbModifyComment.Location = new System.Drawing.Point(11, 209);
             this.tbModifyComment.Name = "tbModifyComment";
             this.tbModifyComment.Size = new System.Drawing.Size(269, 30);
             this.tbModifyComment.TabIndex = 9;
@@ -156,7 +130,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(7, 185);
+            this.label12.Location = new System.Drawing.Point(7, 188);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 20);
             this.label12.TabIndex = 8;
@@ -164,9 +138,9 @@
             // 
             // bttModifySave
             // 
-            this.bttModifySave.Location = new System.Drawing.Point(318, 25);
+            this.bttModifySave.Location = new System.Drawing.Point(328, 25);
             this.bttModifySave.Name = "bttModifySave";
-            this.bttModifySave.Size = new System.Drawing.Size(141, 204);
+            this.bttModifySave.Size = new System.Drawing.Size(131, 204);
             this.bttModifySave.TabIndex = 7;
             this.bttModifySave.Text = "Save";
             this.bttModifySave.UseVisualStyleBackColor = true;
@@ -174,7 +148,7 @@
             // 
             // bttLoadProductData
             // 
-            this.bttLoadProductData.Location = new System.Drawing.Point(105, 48);
+            this.bttLoadProductData.Location = new System.Drawing.Point(174, 48);
             this.bttLoadProductData.Name = "bttLoadProductData";
             this.bttLoadProductData.Size = new System.Drawing.Size(106, 30);
             this.bttLoadProductData.TabIndex = 6;
@@ -186,7 +160,7 @@
             // 
             this.tbModifyID.Location = new System.Drawing.Point(11, 48);
             this.tbModifyID.Name = "tbModifyID";
-            this.tbModifyID.Size = new System.Drawing.Size(88, 30);
+            this.tbModifyID.Size = new System.Drawing.Size(144, 30);
             this.tbModifyID.TabIndex = 5;
             // 
             // label6
@@ -201,16 +175,16 @@
             // 
             // tbModifyStock
             // 
-            this.tbModifyStock.Location = new System.Drawing.Point(11, 152);
+            this.tbModifyStock.Location = new System.Drawing.Point(147, 156);
             this.tbModifyStock.Name = "tbModifyStock";
-            this.tbModifyStock.Size = new System.Drawing.Size(144, 30);
+            this.tbModifyStock.Size = new System.Drawing.Size(132, 30);
             this.tbModifyStock.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(7, 133);
+            this.label5.Location = new System.Drawing.Point(143, 133);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 20);
             this.label5.TabIndex = 2;
@@ -239,7 +213,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.tbDeleteID);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(590, 424);
+            this.groupBox2.Location = new System.Drawing.Point(735, 433);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(465, 81);
             this.groupBox2.TabIndex = 5;
@@ -248,9 +222,9 @@
             // 
             // bttDeleteProduct
             // 
-            this.bttDeleteProduct.Location = new System.Drawing.Point(318, 22);
+            this.bttDeleteProduct.Location = new System.Drawing.Point(328, 22);
             this.bttDeleteProduct.Name = "bttDeleteProduct";
-            this.bttDeleteProduct.Size = new System.Drawing.Size(141, 45);
+            this.bttDeleteProduct.Size = new System.Drawing.Size(131, 45);
             this.bttDeleteProduct.TabIndex = 2;
             this.bttDeleteProduct.Text = "Delete";
             this.bttDeleteProduct.UseVisualStyleBackColor = true;
@@ -276,7 +250,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.tbAddComment);
+            this.groupBox4.Controls.Add(this.tbAddPrice);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.bttAdd);
             this.groupBox4.Controls.Add(this.tbAddStock);
@@ -284,7 +260,7 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.tbAddProduct);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(590, 13);
+            this.groupBox4.Location = new System.Drawing.Point(735, 13);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(465, 158);
             this.groupBox4.TabIndex = 4;
@@ -310,9 +286,9 @@
             // 
             // bttAdd
             // 
-            this.bttAdd.Location = new System.Drawing.Point(318, 41);
+            this.bttAdd.Location = new System.Drawing.Point(328, 114);
             this.bttAdd.Name = "bttAdd";
-            this.bttAdd.Size = new System.Drawing.Size(141, 112);
+            this.bttAdd.Size = new System.Drawing.Size(131, 30);
             this.bttAdd.TabIndex = 4;
             this.bttAdd.Text = "Add";
             this.bttAdd.UseVisualStyleBackColor = true;
@@ -352,11 +328,87 @@
             this.tbAddProduct.Size = new System.Drawing.Size(303, 30);
             this.tbAddProduct.TabIndex = 0;
             // 
+            // tbModifyPrice
+            // 
+            this.tbModifyPrice.Location = new System.Drawing.Point(11, 156);
+            this.tbModifyPrice.Name = "tbModifyPrice";
+            this.tbModifyPrice.Size = new System.Drawing.Size(131, 30);
+            this.tbModifyPrice.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(7, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Price";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(324, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Price";
+            // 
+            // tbAddPrice
+            // 
+            this.tbAddPrice.Location = new System.Drawing.Point(328, 53);
+            this.tbAddPrice.Name = "tbAddPrice";
+            this.tbAddPrice.Size = new System.Drawing.Size(131, 30);
+            this.tbAddPrice.TabIndex = 12;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Product";
+            this.Product.MinimumWidth = 6;
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            this.Product.Width = 150;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 125;
+            // 
+            // StockBalance
+            // 
+            this.StockBalance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.StockBalance.HeaderText = "Stock balance";
+            this.StockBalance.MinimumWidth = 6;
+            this.StockBalance.Name = "StockBalance";
+            this.StockBalance.ReadOnly = true;
+            this.StockBalance.Width = 126;
+            // 
+            // Comment
+            // 
+            this.Comment.HeaderText = "Comment";
+            this.Comment.MinimumWidth = 6;
+            this.Comment.Name = "Comment";
+            this.Comment.ReadOnly = true;
+            this.Comment.Width = 150;
+            // 
             // CatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1206, 554);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
@@ -380,10 +432,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvCatalog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StockBalance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.Button bttClose;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button bttModifySave;
@@ -408,5 +456,14 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbAddComment;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockBalance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbModifyPrice;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbAddPrice;
     }
 }
